@@ -47,11 +47,18 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
+typeset -U path
+
 # Set the list of directories that Zsh searches for programs.
 path=(
   $HOME/{,s}bin(N)
+  $HOME/.local/bin
+  ${ASDF_DATA_DIR:-$HOME/.asdf}/shims
+  $HOME/.cargo/bin
   /opt/{homebrew,local}/{,s}bin(N)
   /usr/local/{,s}bin(N)
+  $HOUND_ROOT/tools/k8s
+  /opt/homebrew/opt/mysql-client/bin
   $path
 )
 
